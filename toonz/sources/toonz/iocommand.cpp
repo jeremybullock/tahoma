@@ -1732,6 +1732,8 @@ bool IoCmd::saveAll(int flags) {
   result = result && resources.save(scene->getScenePath());
   resources.updatePaths();
 
+  TApp::instance()->getCurrentXsheet()->notifyXsheetSoundChanged();
+
   // for update title bar
   app->getCurrentLevel()->notifyLevelTitleChange();
   app->getCurrentPalette()->notifyPaletteTitleChanged();
